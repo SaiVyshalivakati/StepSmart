@@ -9,8 +9,8 @@ store = [
     [1,0,0,0,1,0,0,0,0,1],
     [1,0,0,0,0,0,0,0,0,1],
     [1,1,1,1,1,1,1,1,1,1],
-]
- 
+]          
+
 items={ "Vegetables":(4,4),
          "Fruits":(2,9),
          "Coffee":(6,6),
@@ -22,11 +22,11 @@ def basegrid(store,items):
         for j,cell in enumerate(line):
                 itempos=None
                 for name,(r,c) in items.items():
-                    if r--i and c==j:
+                    if r==i and c==j:
                         itempos=name
 
                 if itempos:
-                    print("Item",end=" ")
+                    print(itempos,end=" ")
 
                 elif cell==1:
                     print("\u2588",end=" ")
@@ -37,4 +37,9 @@ def basegrid(store,items):
         print()
                     
 
-basegrid(store,items)           
+basegrid(store,items) 
+
+def heuristic(a,b):
+    return abs(a[0]-b[0])+abs(a[1]-b[1])
+
+print(heuristic((0,0),(6,6)))
